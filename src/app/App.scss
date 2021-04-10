@@ -1,0 +1,85 @@
+@use 'src/style/colors.scss';
+@use 'src/style/screen.scss';
+
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.section {
+    margin-top: 60px;
+    padding-bottom: 50px;
+
+    border-bottom: 2px solid colors.$sectionBorder;
+
+    h2 {
+        display: flex;
+        margin-bottom: 20px;
+
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: 0.01em;
+
+        img {
+            margin-left: 7px;
+            align-self: center;
+        }
+    }
+
+    h3 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: colors.$textGrey;
+    }
+
+    .input {
+        flex-grow: 1;
+        margin: 10px 0px 10px 0;
+        width: auto;
+    }
+
+    .input-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -20px;
+
+        .input {
+            margin-right: 20px;
+        }
+    }
+}
+
+.action-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .button-group {
+        display: flex;
+
+        .button {
+            margin-right: 10px;
+        }
+
+        @include screen.mobile {
+            flex-grow: 1;
+            flex-direction: column;
+            // margin-bottom: -20px;
+
+            .button {
+                width: 100%;
+                height: 54px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

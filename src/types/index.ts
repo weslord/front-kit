@@ -4,7 +4,12 @@ export interface Notification {
     text: string
 }
 
+export interface Auth {
+    token: string | null
+}
+
 export interface StoreState {
+    auth: Auth
     notifications: Notification[]
 }
 

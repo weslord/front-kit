@@ -1,0 +1,19 @@
+.SignUp {
+    padding: 0 1em 1em 1em;
+
+    h2 {
+        margin-top: 0em;
+    }
+
+    form {
+        display: flex;
+        gap: 0.5em;
+        flex-direction: column;
+    }
+
+    .Button {
+        background: blue;
+        color: white;
+        padding: 0.5em;
+    }
+}

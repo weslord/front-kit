@@ -1,7 +1,7 @@
-import { Home } from './pages/Home'
+import { Home } from './Home/Home'
 
 import { ErrorBoundary } from 'src/elements/error-boundary/ErrorBoundary'
-import { Notifications } from 'src/elements/notifications/Notifications'
+// import { Notifications } from 'src/elements/notifications/Notifications'
 
 import './App.scss'
 
@@ -10,7 +10,7 @@ function App() {
         <div className='App'>
             <ErrorBoundary>
                 <Home />
-                <Notifications />
+                {/* <Notifications /> */}
             </ErrorBoundary>
         </div>
     )

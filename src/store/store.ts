@@ -8,8 +8,8 @@ import { useStore } from 'src/hooks/useStore'
 export { useStore }
 
 const appReducer = combineReducers({
-    auth: authReducer,
-    requests: requestsReducer,
+    // auth: authReducer,
+    // requests: requestsReducer,
     notifications: notificationsReducer,
 })
 

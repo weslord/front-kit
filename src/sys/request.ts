@@ -38,7 +38,7 @@ export const request = ({
     error?: (err: any) => void
 }) => {
     const headers = {
-        //     ...(isAuthenticated && { Authorization: 'Bearer ' + token }),
+        // ...(isAuthenticated && { Authorization: 'Token ' + token }),
         'Content-Type': 'application/json',
     }
 

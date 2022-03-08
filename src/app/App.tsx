@@ -18,6 +18,8 @@ import { AuthRoutes } from 'app/auth/Auth'
 import { Modals } from 'app/modals/Modals'
 import { Notifications } from 'app/notifications/Notifications'
 
+import 'store/dispatch'
+
 import './App.scss'
 
 const TokenCheck = () => {

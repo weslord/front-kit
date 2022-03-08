@@ -2,9 +2,9 @@ import * as TD from 'types/types'
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
-import { notificationsReducer } from './slices/notifications'
-import { authReducer } from './slices/auth'
-import { modalsReducer } from './slices/modals'
+import { notificationsReducer } from './notifications/notifications-slice'
+import { authReducer } from './auth/auth-slice'
+import { modalsReducer } from './modals/modals-slice'
 
 const appReducer = combineReducers({
     auth: authReducer,

@@ -3,8 +3,9 @@ import * as TD from 'types/types'
 import { useEffect } from 'react'
 
 import { useStore } from 'hooks/use-store'
+
 import { store } from 'store/store'
-import { notificationsActions } from 'store/slices/notifications'
+import { notificationsActions } from 'store/notifications/notifications-slice'
 
 import { Button } from 'elements/button/Button'
 

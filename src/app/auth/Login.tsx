@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
 import { request } from 'sys/request'
 
-import { setToken } from 'store/actions/auth'
+import { setToken } from 'store/auth/auth-actions'
 
 import { Button } from 'elements/button/Button'
 import { Input } from 'elements/input/Input'

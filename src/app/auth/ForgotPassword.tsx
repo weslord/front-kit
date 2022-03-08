@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { request } from 'sys/request'
 
 import { store } from 'store/store'
-import { notificationsActions } from 'store/slices/notifications'
+import { notificationsActions } from 'store/notifications/notifications-slice'
 
 import { Button } from 'elements/button/Button'
 import { Input } from 'elements/input/Input'

@@ -1,8 +1,8 @@
 import { store } from 'store/store'
 
-import { modalsActions } from 'store/slices/modals'
-import { notificationsActions } from 'store/slices/notifications'
-import { logout } from 'store/actions/auth'
+import { modalsActions } from 'store/modals/modals-slice'
+import { notificationsActions } from 'store/notifications/notifications-slice'
+import { logout } from 'store/auth/auth-actions'
 
 import { Button } from 'elements/button/Button'
 

@@ -1,5 +1,5 @@
 import { store } from 'store/store'
-import { modalsActions } from 'store/slices/modals'
+import { modalsActions } from 'store/modals/modals-slice'
 
 import { Button } from 'elements/button/Button'
 

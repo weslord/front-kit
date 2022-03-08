@@ -1,7 +1,6 @@
 import { store } from 'store/store'
-
-import { logout } from 'store/actions/auth'
-import { notificationsActions } from 'store/slices/notifications'
+import { logout } from 'store/auth/auth-actions'
+import { notificationsActions } from 'store/notifications/notifications-slice'
 
 const API_URL = window.location.hostname.includes('localhost')
     ? 'http://localhost:8000'

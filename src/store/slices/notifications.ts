@@ -1,4 +1,4 @@
-import { Notification } from 'types/index'
+import * as TD from 'types'
 
 import { createSlice } from '@reduxjs/toolkit'
 
@@ -6,11 +6,11 @@ let keyIndex = 0
 
 const notificationsSlice = createSlice({
     name: 'notifications',
-    initialState: [] as Notification[],
+    initialState: [] as TD.Notification[],
     reducers: {
         addNotification: (
             state,
-            { payload }: { payload: Omit<Notification, 'key'> }
+            { payload }: { payload: Omit<TD.Notification, 'key'> }
         ) => {
             return [...state, { ...payload, key: keyIndex++ }]
         },

@@ -1,13 +1,13 @@
-import { ModalTypes } from 'types/index'
+import * as TD from 'types'
 
 import { dropLast, without } from 'ramda'
 import { createSlice } from '@reduxjs/toolkit'
 
 const modalsSlice = createSlice({
     name: 'modals',
-    initialState: [] as ModalTypes[],
+    initialState: [] as TD.ModalTypes[],
     reducers: {
-        open: (state, action: { payload: { modalType: ModalTypes } }) => {
+        open: (state, action: { payload: { modalType: TD.ModalTypes } }) => {
             const { modalType } = action.payload
 
             return [...without([modalType], state), modalType]

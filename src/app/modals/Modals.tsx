@@ -1,10 +1,10 @@
-import { ModalTypes } from 'types/index'
+import * as TD from 'types/index'
 
 import { useStore } from 'hooks/use-store'
 
 import { ExampleModal } from './ExampleModal'
 
-type MC = { [key in ModalTypes]: () => JSX.Element }
+type MC = { [key in TD.ModalTypes]: () => JSX.Element }
 
 const modalComponents: MC = {
     SOME_MODAL: ExampleModal,

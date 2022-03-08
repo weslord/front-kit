@@ -1,4 +1,4 @@
-import * as TD from 'types/index'
+import * as TD from 'types/types'
 
 import { useStore } from 'hooks/use-store'
 

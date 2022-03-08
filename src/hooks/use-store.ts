@@ -1,4 +1,4 @@
-import * as TD from '../types'
+import * as TD from '../types/types'
 
 import { useEffect, useReducer, useRef } from 'react'
 import { equals } from 'ramda'

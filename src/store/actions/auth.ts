@@ -1,9 +1,9 @@
-import { store } from 'store/store'
-import { authActions } from 'store/slices/auth'
+import * as TD from 'types/types'
 
 import { saveAuthData } from 'sys/localStorage'
 
-import * as TD from 'types'
+import { store } from 'store/store'
+import { authActions } from 'store/slices/auth'
 
 export const setToken = (token: TD.Auth['token']) => {
     store.dispatch(authActions.setToken(token))

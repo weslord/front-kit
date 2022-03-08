@@ -23,8 +23,10 @@
     "typescript": "^4.3.5"
   },
   "scripts": {
+    "check-placeholders": "echo '== FRONTKIT PLACEHOLDERS =='; git grep -E '___.+___';",
+    "postinstall": "npm run check-placeholders",
     "start": "BROWSER=none react-scripts start",
-    "lint": "git grep -E '___.+___'; prettier --check src/**/*.{js,jsx,ts,tsx,json,css,scss,md}; echo",
+    "lint": "prettier --check src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

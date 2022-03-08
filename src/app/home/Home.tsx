@@ -23,6 +23,11 @@ export const Home = () => {
     return (
         <div>
             <h1>Home</h1>
+            <div className='desktop-only'>
+                Try making the window narrower...
+            </div>
+            <div>...in the middle...</div>
+            <div className='mobile-only'>...try making the window wider</div>
             <div>
                 <Button onClick={openModal}>Open Modal</Button>
                 <Button onClick={createNotification}>

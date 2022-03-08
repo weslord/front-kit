@@ -2,16 +2,14 @@ import * as TD from 'types/types'
 
 import { useEffect } from 'react'
 
-import { useStore } from 'hooks/use-store'
-
 import { store } from 'store/store'
 import { notificationsActions } from 'store/notifications/notifications-slice'
 
 import { Button } from 'elements/button/Button'
 
-import './Notifications.scss'
+import './Notification.scss'
 
-const Notification = ({
+export const Notification = ({
     notification: { key, type, text },
 }: {
     notification: TD.Notification
@@ -35,20 +33,6 @@ const Notification = ({
             <Button className='close' onClick={close}>
                 X
             </Button>
-        </div>
-    )
-}
-
-export const Notifications = () => {
-    const notifications = useStore((state) => state.notifications)
-    return (
-        <div className='Notifications'>
-            {notifications.map((notification) => (
-                <Notification
-                    key={notification.key}
-                    notification={notification}
-                />
-            ))}
         </div>
     )
 }

@@ -10,14 +10,13 @@ import {
 import { useStore } from 'hooks/use-store'
 
 import { ErrorBoundary } from 'elements/error-boundary/ErrorBoundary'
-import { Notifications } from 'elements/notifications/Notifications'
 
 import { NotFound } from 'elements/not-found/NotFound'
 
-import { AuthRoutes } from './auth/Auth'
-
 import { Home } from 'app/home/Home'
+import { AuthRoutes } from 'app/auth/Auth'
 import { Modals } from 'app/modals/Modals'
+import { Notifications } from 'app/notifications/Notifications'
 
 import './App.scss'
 

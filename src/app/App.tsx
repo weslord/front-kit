@@ -14,11 +14,7 @@ import { Notifications } from 'elements/notifications/Notifications'
 
 import { NotFound } from 'elements/not-found/NotFound'
 
-import { Auth, WithAuthHeader } from './auth/Auth'
-import { Login } from './auth/Login'
-import { SignUp } from './auth/SignUp'
-import { ForgotPassword } from './auth/ForgotPassword'
-import { ResetPassword } from './auth/ResetPassword'
+import { AuthRoutes } from './auth/Auth'
 
 import { Home } from 'app/home/Home'
 import { Modals } from 'app/modals/Modals'
@@ -43,34 +39,26 @@ const TokenCheck = () => {
     return <Outlet />
 }
 
+export const AppRoutes = () => {
+    return (
+        <Routes>
+            <Route path='/' element={<TokenCheck />}>
+                {/* authorized routes */}
+                <Route index element={<Home />} />
+            </Route>
+
+            <Route path='/auth/*' element={<AuthRoutes />} />
+
+            <Route path='*' element={<NotFound />} />
+        </Routes>
+    )
+}
+
 export const App = () => {
     return (
         <ErrorBoundary>
             <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<TokenCheck />}>
-                        {/* authorized routes */}
-                        <Route index element={<Home />} />
-                    </Route>
-
-                    <Route path='/auth' element={<Auth />}>
-                        <Route index element={<NotFound />} />
-                        <Route element={<WithAuthHeader />}>
-                            <Route path='login' element={<Login />} />
-                            <Route path='sign-up' element={<SignUp />} />
-                            <Route
-                                path='forgot-password'
-                                element={<ForgotPassword />}
-                            />
-                        </Route>
-                        <Route
-                            path='reset-password/:token/:userId'
-                            element={<ResetPassword />}
-                        />
-                    </Route>
-
-                    <Route path='*' element={<NotFound />} />
-                </Routes>
+                <AppRoutes />
                 <Modals />
                 <Notifications />
             </BrowserRouter>

@@ -23,4 +23,5 @@ const notificationsSlice = createSlice({
     },
 })
 
-export const { actions, reducer } = notificationsSlice
+export const notificationsReducer = notificationsSlice.reducer
+export const notificationsActions = notificationsSlice.actions

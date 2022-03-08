@@ -3,7 +3,8 @@ import * as TD from 'types'
 import { useEffect } from 'react'
 
 import { useStore } from 'hooks/use-store'
-import { actions as notificationActions } from 'store/slices/notifications'
+import { store } from 'store/store'
+import { notificationsActions } from 'store/slices/notifications'
 
 import { Button } from 'elements/button/Button'
 
@@ -16,7 +17,7 @@ const Notification = ({
 }) => {
     useEffect(() => {
         const tid = setTimeout(() => {
-            notificationActions.removeNotification({ key })
+            store.dispatch(notificationsActions.removeNotification({ key }))
         }, 5000)
         return () => {
             clearTimeout(tid)
@@ -24,7 +25,7 @@ const Notification = ({
     }, [key])
 
     const close = () => {
-        notificationActions.removeNotification({ key })
+        store.dispatch(notificationsActions.removeNotification({ key }))
     }
 
     return (

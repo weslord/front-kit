@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { loadAuthData } from 'sys/localStorage'
 
-export const authSlice = createSlice({
+const authSlice = createSlice({
     name: 'auth',
     initialState: loadAuthData(),
     reducers: {
@@ -19,3 +19,6 @@ export const authSlice = createSlice({
         },
     },
 })
+
+export const authReducer = authSlice.reducer
+export const authActions = authSlice.actions

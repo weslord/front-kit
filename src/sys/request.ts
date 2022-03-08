@@ -1,17 +1,19 @@
 import { store } from 'store/store'
 
 import { logout } from 'store/actions/auth'
-import { actions as notificationActions } from 'store/slices/notifications'
+import { notificationsActions } from 'store/slices/notifications'
 
 const API_URL = window.location.hostname.includes('localhost')
     ? 'http://localhost:8000'
     : '___PRODUCTION_URL___'
 
 const failureNotification = (res: Response) => {
-    notificationActions.addNotification({
-        type: 'warning',
-        text: 'Something went wrong.',
-    })
+    store.dispatch(
+        notificationsActions.addNotification({
+            type: 'warning',
+            text: 'Something went wrong.',
+        })
+    )
 
     res.json()
         .then((data) => {
@@ -23,10 +25,12 @@ const failureNotification = (res: Response) => {
 }
 
 const errorNotification = (err: any) => {
-    notificationActions.addNotification({
-        type: 'warning',
-        text: 'Something went wrong.',
-    })
+    store.dispatch(
+        notificationsActions.addNotification({
+            type: 'warning',
+            text: 'Something went wrong.',
+        })
+    )
 
     console.error(err)
 }

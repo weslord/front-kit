@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
-    "@types/node": "^12.20.16",
+    "@types/node": "^16.11.26",
     "@types/ramda": "^0.28.1",
-    "@types/react": "^17.0.14",
-    "@types/react-dom": "^17.0.9",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.13",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
     "prettier": "^2.3.2",
@@ -18,15 +18,15 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.0",
     "sass": "^1.35.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.6.2"
   },
   "scripts": {
     "check-placeholders": "echo '== FRONTKIT PLACEHOLDERS =='; git grep -E '___.+___';",
     "postinstall": "npm run check-placeholders",
-    "start": "BROWSER=none react-scripts start",
     "lint": "prettier --check src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

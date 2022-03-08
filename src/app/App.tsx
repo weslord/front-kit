@@ -1,8 +1,8 @@
 import { ErrorBoundary } from 'elements/error-boundary/ErrorBoundary'
 import { Notifications } from 'elements/notifications/Notifications'
 
-import { Home } from './Home/Home'
-import { Auth } from './Auth/Auth'
+import { Home } from './home/Home'
+import { Auth } from './auth/Auth'
 
 import './App.scss'
 

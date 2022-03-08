@@ -7,8 +7,6 @@ import { setToken } from 'store/actions/auth'
 import { Button } from 'elements/button/Button'
 import { Input } from 'elements/input/Input'
 
-import './SignUp.scss'
-
 export const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

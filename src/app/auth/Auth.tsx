@@ -6,8 +6,8 @@ import { logout } from 'store/actions/auth'
 
 import { Button } from 'elements/button/Button'
 
-import { Login } from './Login/Login'
-import { SignUp } from './SignUp/SignUp'
+import { Login } from './Login'
+import { SignUp } from './SignUp'
 
 import './Auth.scss'
 

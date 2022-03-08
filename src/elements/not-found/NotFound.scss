@@ -1,0 +1,5 @@
+@use 'src/style/mixins';
+
+.NotFound {
+    @include mixins.centered-column;
+}

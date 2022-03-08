@@ -1,11 +1,13 @@
-import { store } from 'src/store/store'
-import { authSlice } from 'src/store/slices/auth'
+import { store } from 'store/store'
+import { authSlice } from 'store/slices/auth'
 
-import { saveAuthData } from 'src/sys/localStorage'
+import { saveAuthData } from 'sys/localStorage'
 
-import * as TD from 'src/types'
+import * as TD from 'types'
 
 export const setToken = (token: TD.Auth['token']) => {
     store.dispatch(authSlice.actions.setToken(token))
     saveAuthData({ token })
 }
+
+export const logout = () => setToken(null)

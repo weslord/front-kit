@@ -1,18 +1,11 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import './Button.scss';
+import './Button.scss'
 
 export const Button = forwardRef<
     HTMLButtonElement,
     React.ButtonHTMLAttributes<HTMLButtonElement>
->((
-    {
-        className = '',
-        children,
-        ...props
-    },
-    ref
-) => {
+>(({ className = '', children, ...props }, ref) => {
     return (
         <button
             ref={ref}
@@ -22,5 +15,5 @@ export const Button = forwardRef<
         >
             {children}
         </button>
-    );
-});
+    )
+})

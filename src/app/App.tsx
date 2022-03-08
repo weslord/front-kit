@@ -1,21 +1,19 @@
+import { ErrorBoundary } from 'elements/error-boundary/ErrorBoundary'
+import { Notifications } from 'elements/notifications/Notifications'
+
 import { Home } from './Home/Home'
 import { Auth } from './Auth/Auth'
 
-import { ErrorBoundary } from 'src/elements/error-boundary/ErrorBoundary'
-// import { Notifications } from 'src/elements/notifications/Notifications'
-
 import './App.scss'
 
-function App() {
+export const App = () => {
     return (
         <div className='App'>
             <ErrorBoundary>
                 <Home />
                 <Auth />
-                {/* <Notifications /> */}
+                <Notifications />
             </ErrorBoundary>
         </div>
     )
 }
-
-export default App

@@ -1,42 +1,5 @@
-$blue: #103dc6;
-$mediumBlue: #1375d8;
-$lightBlue: #61afff;
-$purple: #5510c6;
-$magenta: #8c10c6;
-$orange: #ffb689;
-$black: #1d1d1d;
-
-$white: #fcfcfc;
-$offWhite: #f8f8f8;
-$lightGrey: #f0f0f0;
-$mediumGrey: #d8d8d8;
-$grey: #8c8c8c;
-$darkGrey: #3c3c3c;
-
-$pageBackground: $offWhite;
-$inputBackground: $white;
-$rowBackground: $white;
-
-$textWhite: $white;
-$textOffWhite: $offWhite;
-$textBlack: $black;
-$textBlack50: rgba($textBlack, 0.5);
-$textBlack40: rgba($textBlack, 0.4);
-$textInactiveSidebar: #6c6c6c;
-$textGrey: $grey;
-$textBlue: $blue;
-$hoverBlue: $mediumBlue;
-$statusBlue: $lightBlue;
-
-$sectionBorder: rgba($grey, 0.5);
+$black: black;
+$blue: blue;
+$orange: orange;
 
 $warning: $orange;
-$formError: #ee813e;
-
-$boxBackground: black;
-$boxBlack60: rgba($boxBackground, 0.6);
-$connectionBackground: $mediumBlue;
-$userBackground: $purple;
-$tagBackground: $magenta;
-$billingBackground: $black;
-$loafBackground: $blue;

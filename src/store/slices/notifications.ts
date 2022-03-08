@@ -1,4 +1,4 @@
-import { Notification } from 'src/types/index'
+import { Notification } from 'types/index'
 
 import { createSlice } from '@reduxjs/toolkit'
 

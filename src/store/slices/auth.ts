@@ -1,8 +1,8 @@
-import * as TD from 'src/types'
+import * as TD from 'types'
 
 import { createSlice } from '@reduxjs/toolkit'
 
-import { loadAuthData } from 'src/sys/localStorage'
+import { loadAuthData } from 'sys/localStorage'
 
 export const authSlice = createSlice({
     name: 'auth',

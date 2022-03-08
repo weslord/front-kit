@@ -1,0 +1,35 @@
+@use 'src/style/mixins';
+
+.Error {
+    @include mixins.centered-column;
+
+    h1 {
+        font-size: larger;
+        font-weight: bold;
+    }
+
+    .contact {
+        padding: 0 0.2rem;
+        background-color: #f0f0f0;
+    }
+
+    .next-steps {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3rem 0 2rem;
+
+        a:visited {
+            color: blue;
+        }
+    }
+
+    pre {
+        max-height: 5rem;
+        margin-top: 2rem;
+        padding: 0.5rem;
+        font-size: small;
+        color: #666;
+        background-color: #f0f0f0;
+        overflow: scroll;
+    }
+}

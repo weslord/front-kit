@@ -1,4 +1,4 @@
-import * as TD from 'src/types'
+import * as TD from 'types'
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
@@ -12,7 +12,7 @@ const appReducer = combineReducers({
 })
 
 export const store = configureStore({
-    reducer: (state: TD.StoreState | undefined, action) => {
+    reducer: (state: TD.Store | undefined, action) => {
         return appReducer(state, action)
     },
 })

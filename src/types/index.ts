@@ -8,8 +8,11 @@ export interface Auth {
     token: string | null
 }
 
-export interface StoreState {
+// export type ModalTypes = 'SOME_MODAL' | 'SOME_OTHER_MODAL'
+
+export interface Store {
     auth: Auth
+    // modals: ModalTypes[]
     notifications: Notification[]
 }
 

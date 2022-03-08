@@ -1,15 +1,18 @@
-/* eslint-disable
-    no-console,
-    @typescript-eslint/no-explicit-any
-*/
+import { store } from 'store/store'
 
-// import { store } from '../store/store';
+import { logout } from 'store/actions/auth'
+import { actions as notificationActions } from 'store/slices/notifications'
 
-// import { API_URL } from 'src/consts'
-
-const API_URL = 'http://localhost:8000'
+const API_URL = window.location.hostname.includes('localhost')
+    ? 'http://localhost:8000'
+    : '___PRODUCTION_URL___'
 
 const failureNotification = (res: Response) => {
+    notificationActions.addNotification({
+        type: 'warning',
+        text: 'Something went wrong.',
+    })
+
     res.json()
         .then((data) => {
             console.warn(data)
@@ -18,31 +21,53 @@ const failureNotification = (res: Response) => {
             console.warn(res, err)
         })
 }
-const errorNotification = (err: any) => console.error(err)
 
-export const request = ({
+const errorNotification = (err: any) => {
+    notificationActions.addNotification({
+        type: 'warning',
+        text: 'Something went wrong.',
+    })
+
+    console.error(err)
+}
+
+export const request = <T>({
     url,
     method = 'GET',
-    // isAuthenticated,
     body,
+    isAuthenticated = true,
     success,
     failure,
     error,
-}: {
+}: (
+    | {
+          method?: 'GET' | 'HEAD' | 'DELETE'
+          body?: undefined
+      }
+    | {
+          method: 'POST' | 'PUT'
+          body: T
+      }
+    | {
+          method: 'PATCH'
+          body: Partial<T>
+      }
+) & {
     url: string
-    method?: string
-    // isAuthenticated?: boolean
-    body?: any
+    isAuthenticated?: boolean
     success: (data: any) => void
     failure?: (res: Response) => void
     error?: (err: any) => void
 }) => {
+    const token = store.getState().auth.token
+
     const headers = {
-        // ...(isAuthenticated && { Authorization: 'Token ' + token }),
+        ...(isAuthenticated && token && { Authorization: 'Token ' + token }),
         'Content-Type': 'application/json',
     }
 
-    const fullUrl = url.startsWith('/') ? `${API_URL}${url}` : url
+    const isUsingOwnApi = url.startsWith('/')
+    const fullUrl = isUsingOwnApi ? `${API_URL}${url}` : url
     if (!fullUrl.startsWith('http')) {
         console.warn(`URL does not start with http: "${url}"`)
     }
@@ -54,20 +79,33 @@ export const request = ({
     })
         .then((res) => {
             if (res.ok) {
-                res.json()
-                    .then((data) => {
-                        success(data)
-                    })
-                    .catch((err) => {
-                        if (error) error(err)
-                        errorNotification(err)
-                    })
+                if (res.statusText === 'No Content') {
+                    success('')
+                } else {
+                    res.json()
+                        .then((data) => {
+                            success(data)
+                        })
+                        .catch((err) => {
+                            if (error) error(err)
+                            errorNotification(err)
+                        })
+                }
             } else {
+                // received error from server
+                if (isUsingOwnApi && res.status === 401) {
+                    // unauthenticated
+                    // TODO: prompt to login, instead?
+                    logout()
+                }
+
+                // TODO: definitely supply better error message
                 if (failure) failure(res.clone())
                 failureNotification(res)
             }
         })
         .catch((err) => {
+            // network connection issue
             if (error) error(err)
             errorNotification(err)
         })

@@ -1,9 +1,16 @@
 .Button {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-    padding: 0;
     border: none;
-    background: inherit;
-  }
+    background-color: inherit;
+}
+
+a.Button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 1px 4px;
+
+    &,
+    &:visited {
+        color: black;
+    }
+}

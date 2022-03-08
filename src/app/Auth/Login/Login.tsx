@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import { request } from 'src/sys/request';
+import { request } from 'sys/request'
 
-import { setToken } from 'src/store/actions/auth';
+import { setToken } from 'store/actions/auth'
 
-import { Button } from 'src/elements/button/Button';
-import { Input } from 'src/elements/input/Input';
+import { Button } from 'elements/button/Button'
+import { Input } from 'elements/input/Input'
 
-import './Login.scss';
+import './Login.scss'
 
 export const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault()
 
         request({
             url: '/api/auth/login',
             method: 'POST',
             body: { email, password },
             success: (data) => setToken(data.token),
-            failure: (res) => res.text().then(err => setError(err)),
+            failure: (res) => res.text().then((err) => setError(err)),
             error: (err) => setError(err),
-        });
-    };
+        })
+    }
 
     return (
         <div className='Login'>
@@ -48,5 +48,5 @@ export const Login = () => {
                 <Button type='submit'>login</Button>
             </form>
         </div>
-    );
-};
+    )
+}

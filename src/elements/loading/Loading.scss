@@ -1,0 +1,17 @@
+@use 'src/style/mixins';
+
+.Loading {
+    @include mixins.centered-column;
+
+    animation: pulseLoading 0.75s ease-in-out infinite alternate;
+}
+
+@keyframes pulseLoading {
+    0% {
+        color: #000;
+    }
+
+    100% {
+        color: #555;
+    }
+}

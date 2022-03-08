@@ -7,5 +7,5 @@
 # production
 /build
 
-# CSS reset file
-/src/style/reset.css
+# css normalize
+/src/style/normalize.css

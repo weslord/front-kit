@@ -1,8 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
-export function useClickOutside(cb: () => void) {
-    const ref = useRef<any>()
-
+export function useClickOutside(ref: React.RefObject<any>, cb: () => void) {
     useEffect(() => {
         const onClickOutside = (ev: Event) => {
             ref.current && !ref.current.contains(ev.target) && cb && cb()
@@ -16,6 +14,4 @@ export function useClickOutside(cb: () => void) {
             document.removeEventListener('touchstart', onClickOutside)
         }
     }, [ref, cb])
-
-    return ref
 }

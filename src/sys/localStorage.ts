@@ -1,4 +1,4 @@
-import * as TD from 'src/types'
+import * as TD from 'types'
 
 export const loadAuthData = () => {
     try {

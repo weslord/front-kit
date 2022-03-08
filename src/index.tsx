@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from 'src/app/App'
+import { App } from './app/App'
 
-import 'src/style/reset.css'
-import 'src/style/index.scss'
+import './style/normalize.css'
+import './style/reset.scss'
+
+import './style/index.scss'
 
 ReactDOM.render(
     <React.StrictMode>

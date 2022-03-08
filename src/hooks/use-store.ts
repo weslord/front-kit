@@ -5,7 +5,7 @@ import { equals } from 'ramda'
 
 import { store } from '../store/store'
 
-export function useStore<T>(mapper: (state: TD.StoreState) => T) {
+export function useStore<T>(mapper: (state: TD.Store) => T) {
     const [, forceRender] = useReducer((s) => s + 1, 0)
     const initialState = mapper(store.getState())
     const mappedStateRef = useRef(initialState)

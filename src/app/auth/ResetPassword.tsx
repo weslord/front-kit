@@ -1,31 +1,39 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { request } from 'sys/request'
 
-import { setToken } from 'store/actions/auth'
+import { store } from 'store/store'
+import { notificationsActions } from 'store/slices/notifications'
 
 import { Button } from 'elements/button/Button'
 import { Input } from 'elements/input/Input'
 
-export const SignUp = () => {
-    const [email, setEmail] = useState('')
+export const ResetPassword = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-
-    const navigate = useNavigate()
+    const { token, userId } = useParams()
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
         request({
-            url: '/api/auth/signup',
+            url: '/api/auth/reset-password',
             method: 'POST',
             isAuthenticated: false,
-            body: { email, password },
-            success: (data) => {
-                setToken(data.token)
-                navigate('/')
+            body: {
+                token,
+                user_id: userId,
+                password,
+            },
+            success: () => {
+                window.location.pathname = ''
+                store.dispatch(
+                    notificationsActions.addNotification({
+                        type: 'success',
+                        text: 'Your password has been reset.',
+                    })
+                )
             },
             failure: (res) => res.text().then((err) => setError(err)),
             error: (err) => setError(String(err)),
@@ -33,16 +41,9 @@ export const SignUp = () => {
     }
 
     return (
-        <div className='SignUp'>
-            <h2>Please sign up.</h2>
+        <div className='ResetPassword'>
+            <h2>Please enter your new password</h2>
             <form onSubmit={handleSubmit}>
-                <label>email</label>
-                <Input
-                    name='email'
-                    type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
                 <label>password</label>
                 <Input
                     name='password'
@@ -52,7 +53,7 @@ export const SignUp = () => {
                 />
                 <div className='error'>{error}</div>
 
-                <Button type='submit'>sign up</Button>
+                <Button type='submit'>submit</Button>
             </form>
         </div>
     )

@@ -1,8 +1,10 @@
 import { store } from 'store/store'
 
-import { Button } from 'elements/button/Button'
 import { modalsActions } from 'store/slices/modals'
 import { notificationsActions } from 'store/slices/notifications'
+import { logout } from 'store/actions/auth'
+
+import { Button } from 'elements/button/Button'
 
 export const Home = () => {
     const openModal = () => {
@@ -26,6 +28,7 @@ export const Home = () => {
                 <Button onClick={createNotification}>
                     Create Notification
                 </Button>
+                <Button onClick={logout}>Logout</Button>
             </div>
         </div>
     )

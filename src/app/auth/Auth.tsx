@@ -1,56 +1,38 @@
-import { useState } from 'react'
-
-import { useStore } from 'hooks/use-store'
-
-import { logout } from 'store/actions/auth'
-
-import { Button } from 'elements/button/Button'
-
-import { Login } from './Login'
-import { SignUp } from './SignUp'
+import { NavLink, Outlet } from 'react-router-dom'
 
 import './Auth.scss'
 
-const Logout = () => {
+export const WithAuthHeader = () => {
     return (
-        <Button className='Logout primary' onClick={logout}>
-            Logout
-        </Button>
+        <>
+            <div className='AuthHeader'>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? 'Button active' : 'Button'
+                    }
+                    to='/auth/login'
+                >
+                    log in
+                </NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? 'Button active' : 'Button'
+                    }
+                    to='/auth/sign-up'
+                >
+                    sign up
+                </NavLink>
+            </div>
+
+            <Outlet />
+        </>
     )
 }
 
 export const Auth = () => {
-    const isAuthed = useStore((state) => state.auth.token !== null)
-
-    const [tab, setTab] = useState<'LOGIN' | 'SIGNUP'>('LOGIN')
-
     return (
         <div className='Auth'>
-            {isAuthed ? (
-                <>
-                    <Logout />
-                </>
-            ) : (
-                <>
-                    <Button
-                        onClick={() => {
-                            setTab('LOGIN')
-                        }}
-                    >
-                        log in
-                    </Button>
-                    {' / '}
-                    <Button
-                        onClick={() => {
-                            setTab('SIGNUP')
-                        }}
-                    >
-                        sign up
-                    </Button>
-                    {tab === 'LOGIN' && <Login />}
-                    {tab === 'SIGNUP' && <SignUp />}
-                </>
-            )}
+            <Outlet />
         </div>
     )
 }

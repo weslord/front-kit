@@ -1,26 +1,38 @@
 .Auth {
-    margin-top: 2em;
-    border-top: 2px solid black;
-    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
 
-    .Login,
-    .SignUp {
-        padding: 0 1em 1em 1em;
+.Login,
+.SignUp,
+.ForgotPassword,
+.ResetPassword {
+    width: 20rem;
+    padding: 0 1rem 1rem 1rem;
 
-        h2 {
-            margin-top: 0em;
-        }
+    h2 {
+        margin-top: 0rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
 
-        form {
-            display: flex;
-            gap: 0.5em;
-            flex-direction: column;
-        }
+    form {
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+    }
 
-        .Button {
-            background: blue;
-            color: white;
-            padding: 0.5em;
+    .Button {
+        background: blue;
+        color: white;
+        padding: 0.5rem;
+
+        &.forgot {
+            background: none;
+            color: black;
+            padding: 0 0 0.75rem 0;
         }
     }
 }

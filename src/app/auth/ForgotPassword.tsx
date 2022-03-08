@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom'
 
 import { request } from 'sys/request'
 
-import { setToken } from 'store/actions/auth'
+import { store } from 'store/store'
+import { notificationsActions } from 'store/slices/notifications'
 
 import { Button } from 'elements/button/Button'
 import { Input } from 'elements/input/Input'
 
-export const SignUp = () => {
+export const ForgotPassword = () => {
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
     const navigate = useNavigate()
@@ -19,13 +19,18 @@ export const SignUp = () => {
         event.preventDefault()
 
         request({
-            url: '/api/auth/signup',
+            url: '/api/auth/forgot-password',
             method: 'POST',
             isAuthenticated: false,
-            body: { email, password },
-            success: (data) => {
-                setToken(data.token)
-                navigate('/')
+            body: { email },
+            success: () => {
+                navigate('/auth/login')
+                store.dispatch(
+                    notificationsActions.addNotification({
+                        type: 'success',
+                        text: 'Check your email for a password reset link.',
+                    })
+                )
             },
             failure: (res) => res.text().then((err) => setError(err)),
             error: (err) => setError(String(err)),
@@ -33,8 +38,8 @@ export const SignUp = () => {
     }
 
     return (
-        <div className='SignUp'>
-            <h2>Please sign up.</h2>
+        <div className='ForgotPassword'>
+            <h2>Enter the email to send a password reset link</h2>
             <form onSubmit={handleSubmit}>
                 <label>email</label>
                 <Input
@@ -43,16 +48,9 @@ export const SignUp = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <label>password</label>
-                <Input
-                    name='password'
-                    type='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
                 <div className='error'>{error}</div>
 
-                <Button type='submit'>sign up</Button>
+                <Button type='submit'>submit</Button>
             </form>
         </div>
     )

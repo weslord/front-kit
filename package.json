@@ -7,7 +7,6 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
-    "@types/node": "^16.11.26",
     "@types/ramda": "^0.28.1",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13",

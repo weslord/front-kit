@@ -1,4 +1,4 @@
-@use 'src/style/screen.scss';
+@use 'style/screen.scss';
 
 .mobile-only {
     @include screen.desktop {

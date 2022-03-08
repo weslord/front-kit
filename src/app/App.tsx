@@ -1,8 +1,9 @@
 import { ErrorBoundary } from 'elements/error-boundary/ErrorBoundary'
 import { Notifications } from 'elements/notifications/Notifications'
 
-import { Home } from './home/Home'
-import { Auth } from './auth/Auth'
+import { Home } from 'app/home/Home'
+import { Auth } from 'app/auth/Auth'
+import { Modals } from 'app/modals/Modals'
 
 import './App.scss'
 
@@ -12,6 +13,7 @@ export const App = () => {
             <ErrorBoundary>
                 <Home />
                 <Auth />
+                <Modals />
                 <Notifications />
             </ErrorBoundary>
         </div>

@@ -4,9 +4,11 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import { notificationsReducer } from './slices/notifications'
 import { authReducer } from './slices/auth'
+import { modalsReducer } from './slices/modals'
 
 const appReducer = combineReducers({
     auth: authReducer,
+    modals: modalsReducer,
     notifications: notificationsReducer,
 })
 

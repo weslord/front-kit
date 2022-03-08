@@ -41,7 +41,7 @@
     "tabWidth": 4,
     "overrides": [
       {
-        "files": "*.json",
+        "files": "*.{json,html}",
         "options": {
           "tabWidth": 2
         }

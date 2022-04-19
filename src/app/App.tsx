@@ -21,9 +21,6 @@ import { Notifications } from 'app/notifications/Notifications'
 import './App.scss'
 
 const TokenCheck = () => {
-    // NOTE:
-    // consider initializing auth token to null in store,
-    // getting and setting from localStorage here instead
     const { token } = useStore(({ auth }) => ({ token: auth.token }))
     const location = useLocation()
     const next = location.pathname !== '/' && `next=${location.pathname}`

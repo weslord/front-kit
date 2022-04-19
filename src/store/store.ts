@@ -12,8 +12,15 @@ const appReducer = combineReducers({
     notifications: notificationsReducer,
 })
 
+const rootReducer: typeof appReducer = (state, action) => {
+    if (action.type === 'CLEAR_ALL') {
+        return appReducer(undefined, action)
+    }
+
+    return appReducer(state, action)
+}
 export const store = configureStore({
     reducer: (state: TD.Store | undefined, action) => {
-        return appReducer(state, action)
+        return rootReducer(state, action)
     },
 })

@@ -6,6 +6,8 @@ import { loadAuthData } from 'sys/localStorage'
 
 const authSlice = createSlice({
     name: 'auth',
+    // NOTE: consider initializing to token: null,
+    // safer for resets
     initialState: loadAuthData(),
     reducers: {
         setToken: (

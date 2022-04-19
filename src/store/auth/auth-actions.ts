@@ -10,4 +10,10 @@ export const setToken = (token: TD.Auth['token']) => {
     saveAuthData({ token })
 }
 
+// NOTE: should clear all of store on logout!
+// Be careful with order: store will initialize directly
+// from localStorage, may need to:
+// 1. clear auth in localstorage
+// 2. dispatch complete store reset
+// 3. dispatch auth.token = null
 export const logout = () => setToken(null)
